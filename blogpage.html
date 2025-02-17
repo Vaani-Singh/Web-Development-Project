@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to Yourself - Blog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        nav {
+            background-color: white;
+            height: 20px; /* Adjust the height as needed */
+            padding: 20px 50px; /* Adjust padding for better spacing */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0.5px 10px rgba(167, 167, 167, 0.2);
+            position: fixed; /* Makes navbar stay in place */
+            width: 100%; /* Ensures it stretches across the screen */
+            top: 0; /* Sticks to the top */
+            left: 0; /* Aligns with the left edge */
+            z-index: 1000; /* Ensures navbar stays above other content */
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Spacing between items */
+            margin-right: 200px;
+        }
+        
+        .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .nav-right a:hover {
+            text-decoration: underline; /* Adds underline on hover */
+        }
+        .nav-right button {
+            background-color: #6b00d6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .nav-right button:hover {
+            background-color: #9660f3;
+        }
+        img {
+            width: 180px; /* Adjust logo size */
+            height: 120px;
+            border-radius: 10%;
+            margin-left: 200px;
+        }
+
+
+
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 120px 0 40px; /* Adjust padding for navbar */
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .blog-post {
+            display:flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .blog-post-content {
+            flex: 1;
+        }
+        .blog-post h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .blog-post p {
+            font-size: 14px;
+            color: #666;
+        }
+        .author {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+    background-color: #f9f9f9; /* Light background for the footer */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: center; /* Center align the text */
+    position: relative; /* Position relative for any absolute children */
+}
+
+.footer-links {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the links */
+    gap: 20px; /* Space between links */
+}
+
+.footer-links a {
+    color: #888; /* Light grey color for the text */
+    font-size: 14px; /* Smaller font size */
+    text-decoration: none; /* Remove underline from links */
+    position: relative; /* Position relative for the underline effect */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer-links a::after {
+    content: ""; /* Create a pseudo-element for the underline */
+    display: block;
+    width: 100%; /* Full width of the link */
+    height: 1px; /* Thickness of the underline */
+    background: #888; /* Color of the underline */
+    position: absolute; /* Position it absolutely */
+    bottom: -2px; /* Position it below the text */
+    left: 0; /* Align to the left */
+    transform: scaleX(0); /* Initially hide the underline */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-links a:hover::after {
+    transform: scaleX(1); /* Show the underline on hover */
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Logo -->
+        <div>
+            <a href="{{ url_for('about') }}">
+                <img src="https://www.lettertoyourself.com/images/logo-59791daff261674b59063b28e387833c.svg?vsn=d" alt="Logo">
+            </a>
+        </div>
+        
+        <div class="nav-right">
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('change_address') }}">Change Your Address</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Sign up</a>
+            <button><a href="{{ url_for('write_letter') }}">Write a letter</a></button>
+        </div>     
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>From the blog</h1>
+            <p>Learn how to grow your business with our expert advice.</p>
+        </div>
+        
+        <div class="blog-post">
+            <img src="https://www.lettertoyourself.com/images/posts/post1.jpg" alt="Blog Image">
+            <div class="blog-post-content">
+                <p>2023-08-31</p>
+                <h2>How to write a Letter to Your Future Self</h2>
+                <p>Ever thought about writing a letter to your future self? Our blog breaks it down...</p>
+                <p class="author">Peter Ullrich<br>Founder / CTO</p>
+            </div>
+        </div>
+
+        <div class="blog-post">
+            <img src="https://www.lettertoyourself.com/images/posts/post2-c9541b29b990ade8ae7b5d29387f65e6.png?vsn=d" alt="Blog Image">
+            <div class="blog-post-content">
+                <p>2023-07-25</p>
+                <h2>The Power of Reflection and Journaling in Corporate Training</h2>
+                <p>Enhance corporate training with the letter-to-myself technique...</p>
+                <p class="author">Peter Ullrich<br>Founder / CTO</p>
+            </div>
+        </div>
+
+        <div class="blog-post">
+            <img src="https://www.lettertoyourself.com/images/posts/post3.jpg" alt="Blog Image">
+            <div class="blog-post-content">
+                <p>2023-06-12</p>
+                <h2>The Importance of Journaling on Mental Health</h2>
+                <p>Explore the profound impact of journaling on mental health...</p>
+                <p class="author">Peter Ullrich<br>Founder / CTO</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:tweetdiaries935@gmail.com">E-Mail</a>
+            <a href="https://www.lettertoyourself.com/legal/terms">Terms</a>
+            <a href="https://www.lettertoyourself.com/legal/privacy">Privacy</a>
+            <a href="https://www.lettertoyourself.com/legal/disclaimer">Disclaimer</a>
+            <a href="https://www.lettertoyourself.com/legal/return">Return</a>
+            <a href="https://www.lettertoyourself.com/legal/attributions">Attributions</a>
+        </div>
+    </footer>
+</body>
+</html>

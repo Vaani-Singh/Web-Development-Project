@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to Yourself</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: white;
+            height: 20px; /* Adjust the height as needed */
+            padding: 20px 50px; /* Adjust padding for better spacing */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0.5px 10px rgba(167, 167, 167, 0.2);
+            position: fixed; /* Makes navbar stay in place */
+            width: 100%; /* Ensures it stretches across the screen */
+            top: 0; /* Sticks to the top */
+            left: 0; /* Aligns with the left edge */
+            z-index: 1000; /* Ensures navbar stays above other content */
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Spacing between items */
+            margin-right: 200px;
+        }
+        
+        .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .nav-right a:hover {
+            text-decoration: underline; /* Adds underline on hover */
+        }
+        .nav-right button {
+            background-color: #6b00d6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .nav-right button:hover {
+            background-color: #9660f3;
+        }
+        img {
+            width: 180px; /* Adjust logo size */
+            height: 120px;
+            border-radius: 10%;
+            margin-left: 200px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: left;
+            margin-top: 100px; /* Moves form lower than navbar */
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            background-color: #6b50ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .button:hover {
+            background-color: #5a40e5;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            padding: 15px;
+            background: #f8f8f8;
+            width: 100%;
+            margin-top: auto;
+            position: absolute;
+            bottom: 0;
+        }
+        .footer a {
+            color: #6c5ce7;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Logo -->
+        <div>
+            <a href="{{ url_for('about') }}">
+                <img src="https://www.lettertoyourself.com/images/logo-59791daff261674b59063b28e387833c.svg?vsn=d" alt="Logo">
+            </a>
+        </div>
+        
+        <div class="nav-right">
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('change_address') }}">Change Your Address</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Sign up</a>
+            <button><a href="{{ url_for('write_letter') }}">Write a letter</a></button>
+        </div>     
+    </nav>
+    
+    <div class="container">
+        <h2>When do you want to receive the letter?</h2>
+        <p>When should we send you a physical letter containing your message?</p>
+
+        <form>
+            <ul class="options">
+                <li><label><input type="radio" name="time" value="3-months"> In 3 Months</label></li>
+                <li><label><input type="radio" name="time" value="6-months"> In 6 Months</label></li>
+                <li><label><input type="radio" name="time" value="1-year" checked> In 1 Year</label></li>
+                <li><label><input type="radio" name="time" value="2-years"> In 2 Years</label></li>
+                <li><label><input type="radio" name="time" value="5-years"> In 5 Years</label></li>
+                <li><label><input type="radio" name="time" value="10-years"> In 10 Years</label></li>
+                <li><label><input type="radio" name="time" value="custom"> Custom</label></li>
+            </ul>
+
+            <button><a href="{{ url_for('write_letter2') }}">Write a letter</a></button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <a href="mailto:tweetdiaries935@gmail.com">E-Mail</a> | <a href="https://www.lettertoyourself.com/legal/terms">Terms</a> | <a href="https://www.lettertoyourself.com/legal/privacy">Privacy</a> | <a href="https://www.lettertoyourself.com/legal/disclaimer">Disclaimer</a> | <a href="https://www.lettertoyourself.com/legal/return">Return</a> | <a href="https://www.lettertoyourself.com/legal/attributions">Attributions</a>
+    </div>
+</body>
+</html>

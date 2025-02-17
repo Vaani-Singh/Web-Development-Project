@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to Yourself - Address</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8fc;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 80px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        nav {
+            background-color: white;
+            height: 20px; /* Adjust the height as needed */
+            padding: 20px 50px; /* Adjust padding for better spacing */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0.5px 10px rgba(167, 167, 167, 0.2);
+            position: fixed; /* Makes navbar stay in place */
+            width: 100%; /* Ensures it stretches across the screen */
+            top: 0; /* Sticks to the top */
+            left: 0; /* Aligns with the left edge */
+            z-index: 1000; /* Ensures navbar stays above other content */
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Spacing between items */
+            margin-right: 200px;
+        }
+        
+        .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .nav-right a:hover {
+            text-decoration: underline; /* Adds underline on hover */
+        }
+        .nav-right button {
+            background-color: #6b00d6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .nav-right button:hover {
+            background-color: #9660f3;
+        }
+        img {
+            width: 180px; /* Adjust logo size */
+            height: 120px;
+            border-radius: 10%;
+            margin-left: 200px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .row .form-group {
+            width: 48%;
+        }
+        .button {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 16px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            padding: 15px;
+            background: #f8f8f8;
+            width: 100%;
+            
+            bottom: 0;
+        }
+        .footer a {
+            color: #6c5ce7;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Logo -->
+        <div>
+            <a href="{{ url_for('about') }}">
+                <img src="https://www.lettertoyourself.com/images/logo-59791daff261674b59063b28e387833c.svg?vsn=d" alt="Logo">
+            </a>
+        </div>
+        
+        
+        <div class="nav-right">
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('change_address') }}">Change Your Address</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Sign up</a>
+            <button><a href="{{ url_for('write_letter') }}">Write a letter</a></button>
+        </div>       
+    </nav>
+    <div class="container">
+        <h2>Your (future) address</h2>
+        <p>Use an address to which we can send your message as a physical letter.</p>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="The full name of the recipient">
+        </div>
+        <div class="form-group">
+            <label>E-Mail</label>
+            <input type="email" placeholder="Your own E-Mail address">
+        </div>
+        <div class="form-group">
+            <label>Street address</label>
+            <input type="text" placeholder="Street of the recipient">
+        </div>
+        <div class="form-group">
+            <label>Address Line 2</label>
+            <input type="text" placeholder="e.g. Apartment number">
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label>ZIP / Postal code</label>
+                <input type="text" placeholder="Postal code of the recipient">
+            </div>
+            <div class="form-group">
+                <label>State / Province</label>
+                <input type="text" placeholder="State of the recipient">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" placeholder="City of the recipient">
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <select>
+                    <option>United Kingdom</option>
+                    <option>United States</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                </select>
+            </div>
+        </div>
+        <button><a href="{{ url_for('write_letter4') }}">Write a letter</a></button>
+    </div>
+    <a href="mailto:tweetdiaries935@gmail.com">E-Mail</a> | <a href="https://www.lettertoyourself.com/legal/terms">Terms</a> | <a href="https://www.lettertoyourself.com/legal/privacy">Privacy</a> | <a href="https://www.lettertoyourself.com/legal/disclaimer">Disclaimer</a> | <a href="https://www.lettertoyourself.com/legal/return">Return</a> | <a href="https://www.lettertoyourself.com/legal/attributions">Attributions</a>
+</body>
+</html>

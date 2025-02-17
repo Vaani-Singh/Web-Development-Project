@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8fc;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
+            background-color: white;
+            height: 20px; /* Adjust the height as needed */
+            padding: 20px 50px; /* Adjust padding for better spacing */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0.5px 10px rgba(167, 167, 167, 0.2);
+            position: fixed; /* Makes navbar stay in place */
+            width: 100%; /* Ensures it stretches across the screen */
+            top: 0; /* Sticks to the top */
+            left: 0; /* Aligns with the left edge */
+            z-index: 1000; /* Ensures navbar stays above other content */
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Spacing between items */
+            margin-right: 200px;
+        }
+        
+        .nav-right a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .nav-right a:hover {
+            text-decoration: underline; /* Adds underline on hover */
+        }
+        .nav-right button {
+            background-color: #6b00d6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .nav-right button:hover {
+            background-color: #9660f3;
+        }
+        img {
+            width: 180px; /* Adjust logo size */
+            height: 120px;
+            border-radius: 10%;
+            margin-left: 200px;
+        }
+
+
+        .container {
+            width: 50%;
+            margin: 120px auto 50px; /* Increased margin from top to push content lower */
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .order-box {
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f0f0f5;
+        }
+        .credit-btn, .paypal-btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .credit-btn {
+            background-color: #6c5ce7;
+            color: white;
+        }
+        .paypal-btn {
+            background-color: #ffc439;
+            color: #333;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            padding: 15px;
+            background: #f8f8f8;
+            width: 100%;
+            
+            bottom: 0;
+        }
+        .footer a {
+            color: #6c5ce7;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Logo -->
+        <div>
+            <a href="{{ url_for('about') }}">
+                <img src="https://www.lettertoyourself.com/images/logo-59791daff261674b59063b28e387833c.svg?vsn=d" alt="Logo">
+            </a>
+        </div>
+        
+        
+        <div class="nav-right">
+            <a href="{{ url_for('blog') }}">Blog</a>
+            <a href="{{ url_for('change_address') }}">Change Your Address</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Sign up</a>
+            <button><a href="{{ url_for('write_letter') }}">Write a letter</a></button>
+        </div>     
+    </nav>
+    <div class="container">
+        <h2>Review Your Order</h2>
+        <p>We will deliver your message as a letter in <b>1 year</b> to this address:</p>
+        <div class="order-box">
+            <p><b>Name:</b> [Recipient Name]</p>
+            <p><b>Address:</b> [Street Address]</p>
+            <p><b>City:</b> [City]</p>
+            <p><b>Country:</b> United Kingdom</p>
+        </div>
+        <a href="change address.html">Edit address</a>
+        <h3>Total Price: 7.99€ | £6.99 | $8.99 (incl. VAT)</h3>
+        <button class="credit-btn"><a href="https://checkout.stripe.com/c/pay/cs_live_a1Ar5tT4tS5MCLjvcTtDTa1HbWYM8XAF5GhQ5GViduxBLoEeGImf5fNhdL#fidkdWxOYHwnPyd1blppbHNgWjA0TWB%2Fa0FGSWwzMV9ddV9GVH1tNWdkfGhsc0w8QldWdTJ2UGpJaFBEQExmN2xibjJOZGZTTG5paDRzV059amxccWs0b2tEbFJVNHZBYUhgQ2Z%2FXDNCRmtVNTVEUzd0T2N%2FaCcpJ2hsYXYnP34naHBsYSc%2FJ0tEJykndmxhJz8nS0QnKSdicGxhJz8nS0QneCknZ2BxZHYnP15YKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqcnJyK2lgcXFgd3FqfGpwd3ZgaWMrZmpoJ3gl">Pay with Credit Card</a></button>
+        <button class="paypal-btn"><a href="https://www.paypal.com/checkoutnow?atomic-event-state=eyJkb21haW4iOiJzZGtfcGF5cGFsX3Y1IiwiZXZlbnRzIjpbXSwiaW50ZW50IjoiY2xpY2tfcGF5bWVudF9idXR0b24iLCJpbnRlbnRUeXBlIjoiY2xpY2siLCJpbnRlcmFjdGlvblN0YXJ0VGltZSI6MTcxMi44OTk5OTk5OTg1MDk5LCJ0aW1lU3RhbXAiOjE3MTMsInRpbWVPcmlnaW4iOjE3Mzk3MjM5NDM2MjUuNiwidGFzayI6InNlbGVjdF9vbmVfdGltZV9jaGVja291dCIsImZsb3ciOiJvbmUtdGltZS1jaGVja291dCIsInVpU3RhdGUiOiJ3YWl0aW5nIiwicGF0aCI6Ii9zbWFydC9idXR0b25zIiwidmlld05hbWUiOiJwYXlwYWwtc2RrIn0%3D&sessionID=uid_32f614a2e9_mty6mzk6mdm&buttonSessionID=uid_f181f729b1_mty6mzk6mdm&stickinessID=uid_cb0e764370_mtg6ntc6ntc&smokeHash=&sign_out_user=false&fundingSource=paypal&buyerCountry=IN&locale.x=en_GB&commit=true&client-metadata-id=uid_32f614a2e9_mty6mzk6mdm&clientID=ATLLyLBW61tJKG6pnKSysXmLCHnTMKenaF2j2SbVJQRccx4GT23cqGC9irMLIB6MFO9nwdsB3o_BoTMX&env=production&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWwuY29tL3Nkay9qcz9jbGllbnQtaWQ9QVRMTHlMQlc2MXRKS0c2cG5LU3lzWG1MQ0huVE1LZW5hRjJqMlNiVkpRUmNjeDRHVDIzY3FHQzlpck1MSUI2TUZPOW53ZHNCM29fQm9UTVgmY3VycmVuY3k9RVVSJmRpc2FibGUtZnVuZGluZz1jYXJkLGdpcm9wYXksc2VwYSxzb2ZvcnQiLCJhdHRycyI6eyJkYXRhLXVpZCI6InVpZF9zenZmdHV5eXVwZHpyd3lpc21haWduaGlxZXdyZmkifX0&country.x=GB&xcomponent=1&version=5.0.470&token=8AW89273KU538774V">PayPal</a></button>
+        <p>By placing your order, you agree to our <a href="https://www.lettertoyourself.com/legal/terms">Terms and Conditions</a>.</p>
+    </div>
+    <div class="footer">
+        <a href="mailto:tweetdiaries935@gmail.com">E-Mail</a> | <a href="https://www.lettertoyourself.com/legal/terms">Terms</a> | <a href="https://www.lettertoyourself.com/legal/privacy">Privacy</a> | <a href="https://www.lettertoyourself.com/legal/disclaimer">Disclaimer</a> | <a href="https://www.lettertoyourself.com/legal/return">Return</a> | <a href="https://www.lettertoyourself.com/legal/attributions">Attributions</a>
+    </div>
+</body>
+</html>
