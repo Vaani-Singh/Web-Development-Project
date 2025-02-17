@@ -95,6 +95,21 @@ def register():
 def write_letter():
     return render_template('write_letter.html')
 
+    # Route for Write Letter page
+@app.route('/write_letter2')
+def write_letter2():
+    return render_template('write_letter2.html')
+
+    # Route for Write Letter page
+@app.route('/write_letter3')
+def write_letter3():
+    return render_template('write_letter3.html')
+
+    # Route for Write Letter page
+@app.route('/write_letter4')
+def write_letter4():
+    return render_template('write_letter4.html')
+
 # Route for Dashboard page
 @app.route('/dashboard')
 def dashboard():
